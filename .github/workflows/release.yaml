@@ -63,7 +63,6 @@ jobs:
         run: |
           gh release create v${{ steps.releaseVersion.outputs.result }} \
             --title "v${{ steps.releaseVersion.outputs.result }}" \
-            --notes ${{ steps.releaseNotes.outputs.result }} \
             --repo ${{ github.repository }} \
             --notes-file ${{ github.workspace }}/finalReleaseNotes.md \
             --latest \
