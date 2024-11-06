@@ -57,6 +57,8 @@ jobs:
             fs.writeFileSync('${{ github.workspace }}/finalReleaseNotes.md', releaseNotes);
 
       - name: Create ${{ steps.releaseVersion.outputs.result }} Hook Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create v${{ steps.releaseVersion.outputs.result }} \
             --title "v${{ steps.releaseVersion.outputs.result }}" \
